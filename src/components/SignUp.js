@@ -1,30 +1,55 @@
-import React from 'react'
+import React,{useState} from 'react'
 import InputAdornment from "@mui/material/InputAdornment";
 import TextField from "@mui/material/TextField";
 import AccountCircle from "@mui/icons-material/AccountCircle";
 import Visibility from "@mui/icons-material/Visibility";
+import PersonOutlineIcon from '@mui/icons-material/PersonOutline';
 import Box from "@mui/material/Box";
+import {Button} from 'reactstrap';
+import '../index.css';
+import {useNavigate} from 'react-router-dom';
 
 function SignUp() {
     const [user, setUser]=useState({firstName:'',lastName:'',email:'', phone:'',password:'',confirmPwd:'', registerCode:'', state: '',avatar:'' })
     const [usersGroup, setUsersGroup] = useState([]);
+    const navigate=useNavigate();
   
+const handleChange=(e)=>{
+    const name= e.target.name;
+    const value=e.target.value;
+    console.log(name, value)
+    setUser({...user, [name]: value})
+}
 
+const handleSubmit=(e)=>{
+e.preventDefault();
+if(user.firstName && user.lastName && user.email && user.phone && user.password && user.confirmPwd && user.registerCode && user.state){
+    const newUser={...user, id:new Date().getTime().toString()};
+    setUsersGroup([...usersGroup, newUser])
+    setUser({firstName:'', lastName:'', email:'',phone:'', password:'', confirmPwd:'',registerCode:'',state:'',avatar:''
+})
+}
+}
+
+const navigateTo=()=>{
+navigate('/login')
+}
   return (
       <div className='container'>
     <header>
-    <h1>Welcome to SEYTECH!</h1>
+    <h1 className='title'>Welcome to SEYTECH!</h1>
     <p>In order to register you need a code. Please ask your admin if you don't have it.</p>
   </header>
   <main>
     <h2>CREATE AN ACCOUNT</h2>
-    <form>
+    <form onSubmit={handleSubmit}>
         <Box
       className="App"
       sx={{
        display: 'grid',
-       gridTemplateColumns:'repeat(2, 1fr)',
-       gridGap:20
+       gridTemplateColumns:'550px 550px',
+       gridGap:20,
+       marginLeft:'60px'
       }}
     >
    
@@ -39,7 +64,12 @@ function SignUp() {
       <IconTextField label="Avatar *" id='avatar' name='avatar' value={user.avatar} onChange={handleChange} iconEnd={<Visibility />} />
       
     </Box>
+    <Button className='btn btn-secondary'>Register</Button>
     </form>
+    <footer>
+    <p>Already have an account?</p>
+    <p onClick={navigateTo}>Login</p>
+  </footer>
     </main>
     </div>
   );
