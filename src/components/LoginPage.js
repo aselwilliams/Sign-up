@@ -1,5 +1,5 @@
 import React,{useState,useEffect} from 'react';
-import {Form,FormGroup,Label,Input,Button} from 'reactstrap';
+import {Button} from 'reactstrap';
 import "bootstrap/dist/css/bootstrap.min.css";
 import InputAdornment from "@mui/material/InputAdornment";
 import TextField from "@mui/material/TextField";
@@ -8,6 +8,7 @@ import Box from "@mui/material/Box";
 import MailOutlineIcon from '@mui/icons-material/MailOutline';
 import {useNavigate} from 'react-router-dom';
 import { nanoid } from 'nanoid';
+import '../App.css'
 
 function LoginPage() {
     const [email, setEmail] =useState('mom@home.com')
@@ -41,7 +42,7 @@ function LoginPage() {
                 const token=nanoid();
                 sessionStorage.setItem('token',token)
                 setToken(token)
-                navigate('/dashboard')
+                navigate('/')
             } else {
                 setNotFound(true)
                 setTimeout(()=>{
@@ -56,17 +57,21 @@ function LoginPage() {
         }
     }
   return (
+      <div className='container'>
+         
 <form onSubmit={handleLogin}>
+
             <Box
       className="App login"
       sx={{
         display: "grid",
         gridTemplateColumns: "270px",
-        gridGap: 5,
+        gridGap: 10,
         padding:'30px 40px'
       }}
     >
-        <h5>LOGIN TO YOUR ACCOUNT</h5>
+        <h5 className='login-title'>LOGIN TO YOUR ACCOUNT</h5>
+    
       <IconTextField label="Email" name='email' iconEnd={<MailOutlineIcon />} />
       <IconTextField label="Password" name='password' iconEnd={<VisibilityOffIcon />} />
      <Button className='login-btn' >Log in</Button>
@@ -74,6 +79,7 @@ function LoginPage() {
      <p className='create-account' onClick={handleClick}>Create an account</p>
     </Box>
     </form>
+    </div>
   );
 }
 

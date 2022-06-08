@@ -1,8 +1,6 @@
 import React,{useState} from 'react'
 import InputAdornment from "@mui/material/InputAdornment";
 import TextField from "@mui/material/TextField";
-import AccountCircle from "@mui/icons-material/AccountCircle";
-import Visibility from "@mui/icons-material/Visibility";
 import PersonOutlineIcon from '@mui/icons-material/PersonOutline';
 import PhoneIcon from '@mui/icons-material/Phone';
 import MailOutlineIcon from '@mui/icons-material/MailOutline';
@@ -66,14 +64,13 @@ navigate('/login')
       <IconTextField label="Confirm Password *" id='confirmPwd' name='confirmPwd' value={user.confirmPwd} onChange={handleChange} iconEnd={<VpnKeyIcon />} />
       <IconTextField label="Register Code *" id='registerCode' name='registerCode' value={user.registerCode} onChange={handleChange} iconEnd={<VpnKeyIcon />} />
       <IconTextField label="State *" id='state' name='state' value={user.state} onChange={handleChange} iconEnd={<AddIcon />} />
-      <IconTextField label="Avatar *" id='avatar' name='avatar' value={user.avatar} onChange={handleChange} iconEnd={<PhotoCameraBackIcon />} />
-      
+      <IconTextField label="Avatar *" id='avatar' name='avatar' value={user.avatar} onChange={handleChange} iconEnd={<PhotoCameraBackIcon />} />   
     </Box>
     <Button className='btn btn-secondary'>Register</Button>
     </form>
     <footer>
     <p>Already have an account?</p>
-    <p onClick={navigateTo}>Login</p>
+    <p className='login-tag' onClick={navigateTo}>Login</p>
   </footer>
     </main>
     </div>
