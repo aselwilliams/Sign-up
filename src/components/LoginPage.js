@@ -7,17 +7,20 @@ import VisibilityOffIcon from "@mui/icons-material/Visibility";
 import Box from "@mui/material/Box";
 import MailOutlineIcon from '@mui/icons-material/MailOutline';
 import {useNavigate} from 'react-router-dom';
+import { nanoid } from 'nanoid';
 
 function LoginPage() {
-    const [email, setEmail] =useState('')
-    const [password, setPassword]=useState('')
-    const [token, setToken] =useState(null)
+    const [email, setEmail] =useState('mom@home.com')
+    const [password, setPassword]=useState('159')
+    const [token, setToken] =useState(null);
+    const [emptyFields,setEmptyFields]=useState(false);
+    const [notFound, setNotFound] =useState(false)
 
     const navigate=useNavigate();
 
     useEffect(()=>{
 
-        let token=sessionStorage.getItem('token', token)
+        let token=sessionStorage.getItem('token')
         if(token){
             setToken(token)
         }
@@ -32,6 +35,25 @@ function LoginPage() {
         const emailValue=e.target.email.value;
         const pwdValue=e.target.password.value;
         console.log(emailValue,pwdValue)
+
+        if(emailValue!=='' || pwdValue!==''){
+            if(emailValue===email && pwdValue===password){
+                const token=nanoid();
+                sessionStorage.setItem('token',token)
+                setToken(token)
+                navigate('/dashboard')
+            } else {
+                setNotFound(true)
+                setTimeout(()=>{
+                    setNotFound(false)
+                }, 2000)
+            }
+        } else {
+            setEmptyFields(true)
+            setTimeout(()=>{
+                setEmptyFields(false)
+            }, 2000)
+        }
     }
   return (
 <form onSubmit={handleLogin}>
@@ -43,7 +65,6 @@ function LoginPage() {
         gridGap: 5,
         padding:'30px 40px'
       }}
-   
     >
         <h5>LOGIN TO YOUR ACCOUNT</h5>
       <IconTextField label="Email" name='email' iconEnd={<MailOutlineIcon />} />

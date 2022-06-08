@@ -13,13 +13,13 @@ function App() {
         <div className="col">
           
           <Router>
-          <LoginPage />
+        <SignUp />
             <Routes>
             
-              <Route path='/' element={<Dashboard />} />
+              {/* <Route path='/' element={<Dashboard />} />
               <Route path='/login' element={<LoginPage />} />
               <Route path ='/sign-up' element={<SignUp />} />
-              <Route path ='*' element={<NotFound />} />
+              <Route path ='*' element={<NotFound />} /> */}
             </Routes>
           </Router>
         </div>
