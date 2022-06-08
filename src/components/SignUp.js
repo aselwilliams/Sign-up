@@ -4,6 +4,11 @@ import TextField from "@mui/material/TextField";
 import AccountCircle from "@mui/icons-material/AccountCircle";
 import Visibility from "@mui/icons-material/Visibility";
 import PersonOutlineIcon from '@mui/icons-material/PersonOutline';
+import PhoneIcon from '@mui/icons-material/Phone';
+import MailOutlineIcon from '@mui/icons-material/MailOutline';
+import VpnKeyIcon from '@mui/icons-material/VpnKey';
+import AddIcon from '@mui/icons-material/Add';
+import PhotoCameraBackIcon from '@mui/icons-material/PhotoCameraBack';
 import Box from "@mui/material/Box";
 import {Button} from 'reactstrap';
 import '../index.css';
@@ -53,15 +58,15 @@ navigate('/login')
       }}
     >
    
-      <IconTextField label="First Name *" id='firstName' name='firstName' value={user.firstName} onChange={handleChange} iconEnd={<Visibility />} />
-      <IconTextField label="Last Name *" id='lastName' name='lastName' value={user.lastName} onChange={handleChange} iconStart={<AccountCircle />} />
-      <IconTextField label="Email *" id="email" name='email' value={user.email} onChange={handleChange} iconEnd={<Visibility />} />
-      <IconTextField label="Phone *" id='phone' name='phone' value={user.phone} onChange={handleChange} iconStart={<AccountCircle />} />
-      <IconTextField label="Password *" id='password' name='password' value={user.password} onChange={handleChange} iconEnd={<Visibility />} />
-      <IconTextField label="Confirm Password *" id='confirmPwd' name='confirmPwd' value={user.confirmPwd} onChange={handleChange} iconEnd={<Visibility />} />
-      <IconTextField label="Register Code *" id='registerCode' name='registerCode' value={user.registerCode} onChange={handleChange} iconEnd={<Visibility />} />
-      <IconTextField label="State *" id='state' name='state' value={user.state} onChange={handleChange} iconEnd={<Visibility />} />
-      <IconTextField label="Avatar *" id='avatar' name='avatar' value={user.avatar} onChange={handleChange} iconEnd={<Visibility />} />
+      <IconTextField label="First Name *" id='firstName' name='firstName' value={user.firstName} onChange={handleChange} iconEnd={<PersonOutlineIcon />} />
+      <IconTextField label="Last Name *" id='lastName' name='lastName' value={user.lastName} onChange={handleChange} iconEnd={<PersonOutlineIcon />} />
+      <IconTextField label="Email *" id="email" name='email' value={user.email} onChange={handleChange} iconEnd={<MailOutlineIcon />} />
+      <IconTextField label="Phone *" id='phone' name='phone' value={user.phone} onChange={handleChange} iconEnd={<PhoneIcon />} />
+      <IconTextField label="Password *" id='password' name='password' value={user.password} onChange={handleChange} iconEnd={<VpnKeyIcon />} />
+      <IconTextField label="Confirm Password *" id='confirmPwd' name='confirmPwd' value={user.confirmPwd} onChange={handleChange} iconEnd={<VpnKeyIcon />} />
+      <IconTextField label="Register Code *" id='registerCode' name='registerCode' value={user.registerCode} onChange={handleChange} iconEnd={<VpnKeyIcon />} />
+      <IconTextField label="State *" id='state' name='state' value={user.state} onChange={handleChange} iconEnd={<AddIcon />} />
+      <IconTextField label="Avatar *" id='avatar' name='avatar' value={user.avatar} onChange={handleChange} iconEnd={<PhotoCameraBackIcon />} />
       
     </Box>
     <Button className='btn btn-secondary'>Register</Button>
