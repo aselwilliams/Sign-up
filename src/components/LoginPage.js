@@ -10,22 +10,14 @@ import {useNavigate} from 'react-router-dom';
 import { nanoid } from 'nanoid';
 import '../App.css'
 
-function LoginPage() {
+function LoginPage({setToken}) {
     const [email, setEmail] =useState('mom@home.com')
     const [password, setPassword]=useState('159')
-    const [token, setToken] =useState(null);
+    
     const [emptyFields,setEmptyFields]=useState(false);
     const [notFound, setNotFound] =useState(false)
 
     const navigate=useNavigate();
-
-    useEffect(()=>{
-
-        let token=sessionStorage.getItem('token')
-        if(token){
-            setToken(token)
-        }
-    },[])
 
     const handleClick=()=>{
         navigate('/sign-up')
@@ -58,7 +50,8 @@ function LoginPage() {
     }
   return (
       <div className='container'>
-         
+    {emptyFields ? <div className='error-msg'>Please fill out the fields first!</div> : null} 
+    {notFound ? <div className='error-msg'>User is not found in the system!</div> : null}    
 <form onSubmit={handleLogin}>
 
             <Box

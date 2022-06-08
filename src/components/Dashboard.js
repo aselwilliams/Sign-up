@@ -2,7 +2,7 @@ import { SettingsBackupRestoreRounded } from '@mui/icons-material';
 import React from 'react';
 import {useNavigate} from 'react-router-dom'
 
-function Dashboard() {
+function Dashboard({setToken}) {
 const navigate=useNavigate();
 
     const handleLogout=()=>{
