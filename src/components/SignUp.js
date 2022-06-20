@@ -38,7 +38,7 @@ const navigateTo=()=>{
 navigate('/login')
 }
   return (
-      <div className='container'>
+      <div className='signUp-container'>
     <header>
     <h1 className='title'>Welcome to SEYTECH!</h1>
     <p>In order to register you need a code. Please ask your admin if you don't have it.</p>
@@ -51,8 +51,9 @@ navigate('/login')
       sx={{
        display: 'grid',
        gridTemplateColumns:'550px 550px',
-       gridGap:20,
-       marginLeft:'60px'
+       gridGap:40,
+       marginLeft:'30px',
+       marginRight:'30px'
       }}
     >
    

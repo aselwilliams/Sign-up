@@ -5,12 +5,14 @@ body{
   height: 100vh;
 }
 
-.container{
+.signUp-container{
   text-align: center;
-  margin:auto;
   background:black;
   color:#fff;
+  height: 100%;
+  width: 100%;
 }
+
 header{
   padding:30px;
 }
@@ -20,14 +22,14 @@ main{
 }
 h2{
   padding:20px;
-  font-size: 3rem;
+  font-size: 1.7rem;
 }
 footer{
   margin: 30px;
   height: 100px;
 }
 .btn{
-  width:90%;
+  width:95%;
   margin-top: 30px;
 }
 .title{

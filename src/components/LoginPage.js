@@ -11,11 +11,10 @@ import { nanoid } from 'nanoid';
 import '../App.css'
 
 function LoginPage({setToken}) {
-    const [email, setEmail] =useState('mom@home.com')
-    const [password, setPassword]=useState('159')
-    
+    const [email, setEmail] =useState('mom@home.com');
+    const [password, setPassword]=useState('159');
     const [emptyFields,setEmptyFields]=useState(false);
-    const [notFound, setNotFound] =useState(false)
+    const [notFound, setNotFound] =useState(false);
 
     const navigate=useNavigate();
 
