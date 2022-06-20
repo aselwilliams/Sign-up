@@ -1,5 +1,4 @@
 import {BrowserRouter as Router,Routes, Route } from 'react-router-dom'
-// import './App.css';
 import "bootstrap/dist/css/bootstrap.min.css";
 import Dashboard from './components/Dashboard';
 import LoginPage from './components/LoginPage';
@@ -20,11 +19,8 @@ function App() {
     <div className="container">
       <div className="row">
         <div className="col">
-          
           <Router>
-      
             <Routes>
-            
               <Route path='/' element={<Dashboard setToken={setToken} />} />
               <Route path='/login' element={<LoginPage setToken={setToken} />} />
               <Route path ='/sign-up' element={<SignUp />} />
